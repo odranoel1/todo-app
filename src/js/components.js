@@ -25,7 +25,7 @@ export const createTaskHtml = (task) => {
 
     divTodoList.append( div.firstElementChild );
 
-    return div;
+    return div.firstElementChild;
 }
 
 // Events(

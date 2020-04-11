@@ -1,4 +1,4 @@
-import { Todo } from ".";
+import { Todo } from "./todo.class";
 
 export class TodoList {
 
@@ -18,10 +18,9 @@ export class TodoList {
 
     checkCompleted( id ) {
 
-        const newId = id * 1;
         for ( const todo of this.todos ) {
 
-            if (todo.id === newId) {
+            if (todo.id == id) {
 
                 todo.completed = !todo.completed;
                 this.saveLocalStorage();

@@ -12,27 +12,28 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                exclude: /styles\.css$/i,
+                test: /\.css$/,
+                exclude: /styles\.css$/,
                 use: [
                     'style-loader',
                     'css-loader'
                 ]
             },
             {
-                test: /styles\.css$/i,
+                test: /styles\.css$/,
                 use: [
                     miniCssExtractPlugin.loader,
                     'css-loader'
                 ]
             },
             {
-                test: /\.html$/i,
-                loader: 'html-loader',
-                options: {
-                    attributes: false,
-                    minimize: false
-                },
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: { minimize: false }
+                    }
+                ]
             },
             {
                 test: /\.(png | svg | jpg | gif)/,
@@ -40,7 +41,8 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            esModule: false
+                            esModule: false,
+                            name: 'assets/[name].[ext]'
                         }
                     }
                 ]
