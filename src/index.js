@@ -1,6 +1,11 @@
-import { saludar } from './js/components';
 import './styles.css';
+import { Todo, TodoList } from './classes';
+import { createTaskHtml } from './js/components';
 
-const test = 'Leonardo';
+export const todoList = new TodoList();
 
-saludar(test);
+const { todos } = todoList;
+todos.forEach( createTaskHtml );
+//Funciona sólo con un argumento
+
+console.log( todos );
